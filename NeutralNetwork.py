@@ -71,13 +71,18 @@ class NeuralNetwork:
         return a
 
 #基于NeuralNetwork的手写数字识别示例
+import pylab as p1
 digits = load_digits()
 print(digits.data.shape)
+p1.gray()
+p1.matshow(digits.images[500])
+p1.show()
 X = digits.data
 y = digits.target
 X -= X.min()
 X /= X.max()
 
+'''
 nn =NeuralNetwork([64,100,10])
 X_train, X_test, y_train, y_test = train_test_split(X, y)
 labels_train = LabelBinarizer().fit_transform(y_train)
@@ -96,3 +101,4 @@ for i in range(len(y_test)):
     if(predictions[i] == y_test[i]):
         correct += 1
 print("准确率：",correct/float(len(y_test))*100,"%")
+'''
